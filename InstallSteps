@@ -1,0 +1,34 @@
+Hi Team,
+
+For Automation of installing wikimedia i used terraform tool to launch autoscaling,elb,vpc,rds.etc. I used a default region as eu-west-1. 
+
+The prerequisites are listed below
+
+1)Install terraform 
+2) access and secret key
+3) need to generate a key to connect to the remote instances.
+
+Step1 Assign admin role to the EC2 instance where we installed terraform. (terraform version should be 0.12 version or above)
+
+#terraform -v
+
+Step2 Create a folder and clone the terraform code from github
+
+#mkdir Wikiproject
+#git clone https://github.com/harshavks/wikiproject.git
+
+Step3 generate a key with name as mykeypair
+
+#ssh-keygen -f mykeypair
+
+Step4 Now initialize the terraform, this will download a required plugin
+
+#terraform init
+
+Step4 Execute a below command
+
+#terraform plan   ( is to verify everything is working fine or not)
+#terraform apply
+
+Step4 copy the lb DNS name and paste it in browser then provide the details. Similarly get the rds details from rds.tf file. This will connect to the wikimedia.
+
